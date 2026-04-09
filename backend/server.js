@@ -16,8 +16,14 @@ const resumeRoutes = require('./routes/resumes');
 const adminRoutes = require('./routes/admin');
 const aiRoutes = require('./routes/ai');
 const gamificationRoutes = require('./routes/gamification');
+const cors = require("cors");
 
 const app = express();
+
+app.use(cors({
+  origin: "interview-prep-1-eight.vercel.app",
+  credentials: true
+}));
 
 if (process.env.NODE_ENV !== 'test') {
   connectDB();
