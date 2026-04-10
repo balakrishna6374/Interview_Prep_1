@@ -23,7 +23,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://interview-prep-smoky-zeta.vercel.app"
+    "https://interview-prep-1-lookingaround.vercel.app"
   ],
   credentials: true
 }));
