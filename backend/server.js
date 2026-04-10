@@ -48,7 +48,7 @@ app.use(trackApiRequest);
 
 app.get('/',(req,res) => {
   res.send("Interview Preparation App");
-}
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/attempts', attemptRoutes);
