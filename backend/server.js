@@ -21,7 +21,10 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: "interview-prep-1-eight.vercel.app",
+  origin: [
+    "http://localhost:5173",
+    "https://interview-prep-1-eight.vercel.app"
+  ],
   credentials: true
 }));
 
