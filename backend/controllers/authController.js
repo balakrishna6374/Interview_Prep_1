@@ -86,39 +86,6 @@ exports.logout = async (req, res, next) => {
   }
 };
 
-exports.getMe = async (req, res, next) => {
-  try {
-    const user = await User.findById(req.user.id)
-      .populate('savedQuestions')
-      .populate('completedQuestions');
-
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        error: 'User not found'
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        profileImage: user.profileImage,
-        progressScore: user.progressScore,
-        totalAttempts: user.totalAttempts,
-        averageScore: user.averageScore,
-        savedQuestions: user.savedQuestions,
-        completedQuestions: user.completedQuestions
-      }
-    });
-  } catch (err) {
-    next(err);
-  }
-};
-
 exports.updateProfile = async (req, res, next) => {
   try {
     const fieldsToUpdate = {};
