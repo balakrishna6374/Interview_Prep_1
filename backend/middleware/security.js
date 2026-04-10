@@ -19,11 +19,11 @@ const securityMiddleware = (app) => {
 
   const corsOrigin =
     process.env.NODE_ENV === 'production'
-      ? process.env.FRONTEND_URL || 'https://interview-prep-smoky-zeta.vercel.app'
+      ? process.env.FRONTEND_URL || 'https://interview-preparation-app-tau.vercel.app'
       : [
           'http://localhost:5173',
           'http://localhost:3000',
-          'https://interview-prep-smoky-zeta.vercel.app'
+          'https://interview-preparation-app-tau.vercel.app'
         ];
 
   app.use(
