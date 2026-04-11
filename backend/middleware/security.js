@@ -1,5 +1,4 @@
 const helmet = require('helmet');
-const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 
 const securityMiddleware = (app) => {
@@ -14,24 +13,6 @@ const securityMiddleware = (app) => {
         },
       },
       crossOriginEmbedderPolicy: false,
-    })
-  );
-
-  const corsOrigin =
-    process.env.NODE_ENV === 'production'
-      ? process.env.FRONTEND_URL || 'https://interview-preparation-app-tau.vercel.app'
-      : [
-          'http://localhost:5173',
-          'http://localhost:3000',
-          'https://interview-preparation-app-tau.vercel.app'
-        ];
-
-  app.use(
-    cors({
-      origin: corsOrigin,
-      credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
     })
   );
 
